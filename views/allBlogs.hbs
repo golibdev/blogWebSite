@@ -1,0 +1,26 @@
+{{> otherNavbar}}
+
+<div class="container mt-4">
+    <div class="row">
+        {{#each blogs}}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>{{title}}</h2>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="/uploads/{{image}}" alt="{{title}}">
+                        <a href="/blogpost?post={{slugUrl}}" class="btn btn-primary mt-3">
+                            Read more →
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        Added: {{createdAt}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+{{> footer}}

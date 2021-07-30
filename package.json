@@ -1,0 +1,31 @@
+{
+  "name": "blogwebsite",
+  "version": "1.0.0",
+  "description": "node js blog web site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "mongodb"
+  ],
+  "author": "G`olib Narzllayev <gnarzullayev2000@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "connect-mongodb-session": "^3.0.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^5.13.4",
+    "slugify": "^1.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

@@ -1,0 +1,41 @@
+{{> otherNavbar}}
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card p-4">
+                {{#if regErr}}
+                    <div class="alert alert-danger">
+                        {{regErr}}
+                    </div>
+                {{/if}}
+                <form action="/auth/register" method="POST">
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="your name" name="fullName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Your phone</label>
+                        <input type="text" class="form-control" id="phone" placeholder="your phone" name="phone" value="+998" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Your Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="your password" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Your password again</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="your password again" name="confirmPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{> footer}}
+

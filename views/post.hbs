@@ -1,0 +1,41 @@
+{{> postNavbar}}
+
+<style>
+    .lead {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h4 class="mt-4">{{title}}</h4>
+            <p class="lead">
+                Author: <a href="#">G`olib Narzullayev</a>
+            </p>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <p style="margin-top: 0; margin-bottom: 0">Published: {{createdAt}}</p>
+            </div>
+            <hr>
+            <img src="/uploads/{{image}}" alt="{{title}}" class="img-fluid rounded">
+            <hr>
+            {{{content}}}
+            <hr>
+        </div>
+        <div class="col-md-4 mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Quote of the Day</h5>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit ipsam possimus maxime minus asperiores illo voluptate rem distinctio, eveniet accusantium modi quas, molestiae veniam sint?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer}}

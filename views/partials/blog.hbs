@@ -1,0 +1,82 @@
+<style>
+    .home-blog {
+        background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ) !important;
+    }
+    .home-blog:hover {
+        background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ) !important;
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+        transition: all 0.3s;
+    }
+    .text-white {
+        color: #fff !important;
+    }
+    .fixed-blog-img {
+        height: 220px;
+        object-fit: cover;
+        overflow: hidden;
+    }
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0.125rem solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.5rem;
+    }
+    .card-img-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1.25rem;
+    }
+    .btn {
+        padding: 10px 50px !important;
+        font-size: 25px !important;
+    }
+</style>
+
+<section class="page-section portfolio" id="blog">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Blog</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Item 1-->
+            {{#if blogs}}
+                {{#each blogs}}
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <a href="/blogpost?post={{slugUrl}}">
+                            <div class="card text-white home-blog">
+                                <img class="card-img fixed-blog-img" style="z-index: -1;" src="/uploads/{{image}}" alt="{{title}}">
+                                <div class="card-img-overlay fixed-blog-img">
+                                    <h5 class="card-title">{{title}}</h5>
+                                    <p class="card-text">Добавлен: {{createdAt}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/each}}
+                <div class="text-center">
+                    <a href="/blogposts" class="btn btn-outline-secondary">All blogs</a>
+                </div>
+            {{else}}
+                <div class="alert alert-danger">
+                    Bloglar mavjud emas
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</section>
