@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/blogposts', async (req, res) => {
+router.get('/blogs', async (req, res) => {
     try{
 
         const blogs = await Blog.find().lean()
@@ -39,6 +39,7 @@ router.get('/blogpost', async (req, res) => {
             title: blog.title,
             content: blog.content,
             image: blog.image,
+            slugUrl: slugUrl,
             createdAt: blog.createdAt,
             isLogged: req.session.isLogged
         })

@@ -51,4 +51,44 @@ router.post('/add', protected, async (req, res) => {
     }
 })
 
+router.get('/edit', protected, async (req, res) => {
+    try {
+
+        let slugUrl = req.query.post
+        const blog = await Blog.findOne({slugUrl})
+
+        res.render('edit/editPost', {
+            title: blog.title,
+            content: blog.content,
+            image: blog.image,
+            slugUrl: blog.slugUrl,
+            isLogged: req.session.isLogged
+        })
+    } catch(err) {
+        console.log(err)
+    }
+})
+
+router.post('/delete', protected, async (req, res) => {
+    try {
+        const blog = await Blog.findOne({slugUrl: req.query.post})
+
+        const deleteBlog = await Blog.findByIdAndDelete(blog._id)
+
+        res.redirect('/blogs')
+    } catch(err) {
+        console.log(err)
+    }
+})
+
+router.post('/edit/:slugUrl', protected, async (req, res) => {
+    try {
+        const editedBlog = await Blog.findOne({slugUrl: req.params.slugUrl})
+        const blogs = await Blog.findByIdAndUpdate(editedBlog._id, req.body).lean()
+        res.redirect('/blogs')
+    } catch(err) {
+        console.log(err)
+    }
+})
+
 module.exports = router

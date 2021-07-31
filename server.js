@@ -2,12 +2,10 @@ const express = require('express')
 const dotenv = require('dotenv')
 const exphbs = require('express-handlebars')
 const fileUpload = require('express-fileupload')
-const mongoose = require('mongoose')
-const url = require('url')
-const queryString = require('querystring')
 const flash = require('express-flash')
 const session = require('express-session')
 const MongoStore = require('connect-mongodb-session')(session)
+const connectDB = require('./config/db')
 
 // init env variables
 dotenv.config()
@@ -43,21 +41,6 @@ app.set('view engine', 'hbs')
 app.use('/', require('./routes/homeRoutes'))
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/post', require('./routes/postRoutes'))
-
-const connectDB = async () => {
-    try {
-        const uri = process.env.MONGO_URI
-        const conn = await mongoose.connect(uri, {
-            useFindAndModify: false,
-            useUnifiedTopology: true,
-            useNewUrlParser: true,
-            useCreateIndex: true
-        })
-        console.log(`Mongo db connected: ${conn.connection.host}`)
-    } catch (err) {
-        console.log(err)
-    }
-}
 
 connectDB()
 

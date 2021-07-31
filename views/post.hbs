@@ -22,6 +22,12 @@
             <hr>
             {{{content}}}
             <hr>
+            {{#if isLogged}}
+            <form class="form-control mb-3" action="/post/delete?post={{slugUrl}}" method="POST">
+                <a href="/post/edit?post={{slugUrl}}" class="btn btn-secondary">Edit post</a>
+                <button type="submit" class="btn btn-danger">Delete post</button>
+            </form>
+            {{/if}}
         </div>
         <div class="col-md-4 mt-3">
             <div class="card">
