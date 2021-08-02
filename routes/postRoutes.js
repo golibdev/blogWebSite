@@ -1,6 +1,7 @@
 const { Router } = require('express')
 const path = require('path')
 const Blog = require('../models/blogModel')
+const Comment = require('../models/commentModel')
 const { protected } = require('../middlewares/auth')
 
 const router = Router()

@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose')
 let date = new Date()
 
 let day = date.getDate()
-let month = date.getMonth()
+let month = date.getMonth()+1
 let year = date.getFullYear()
 
 if(day < 10) {
@@ -19,8 +19,8 @@ const postSchema = Schema({
         type: String,
         required: true,
         unique: true,
-        minLength: 15,
-        maxLength: 100
+        min: 15,
+        max: 100
     },
     image: {
         type: String,
@@ -29,15 +29,16 @@ const postSchema = Schema({
     content: {
         type: String,
         required: true,
-        minLength: 10,
-        maxLength: 10000
+        min: 10,
+        max: 10000
     },
     slugUrl: {
-        type: String
+        type: String,
+        unique: true
     },
     createdAt: {
         type: String,
-        default: `${day}.${month+1}.${year}`
+        default: `${day}.${month}.${year}`
     }
 })
 

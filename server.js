@@ -41,6 +41,7 @@ app.set('view engine', 'hbs')
 app.use('/', require('./routes/homeRoutes'))
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/post', require('./routes/postRoutes'))
+app.use('/send', require('./routes/commentRoutes'))
 
 connectDB()
 

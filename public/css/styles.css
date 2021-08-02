@@ -41,6 +41,12 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.blog-text {
+  font-size: 25px !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -16,32 +16,61 @@
             <hr>
             <div class="d-flex justify-content-between">
                 <p style="margin-top: 0; margin-bottom: 0">Published: {{createdAt}}</p>
+                <p>
+                    <i class="fas fa-eye"></i>
+                    <span>{{count}}</span>
+                </p>
             </div>
             <hr>
             <img src="/uploads/{{image}}" alt="{{title}}" class="img-fluid rounded">
             <hr>
-            {{{content}}}
+            <p class="blog-text">
+                {{{content}}}
+            </p>
             <hr>
             {{#if isLogged}}
             <form class="form-control mb-3" action="/post/delete?post={{slugUrl}}" method="POST">
                 <a href="/post/edit?post={{slugUrl}}" class="btn btn-secondary">Edit post</a>
                 <button type="submit" class="btn btn-danger">Delete post</button>
             </form>
+            {{else}}
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h3>Leave comments:</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/send/comment" method="POST">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="content"  name="content" rows="5"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary" type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
             {{/if}}
         </div>
-        <div class="col-md-4 mt-3">
+        <div class="col-md-4 mt-3 mb-3">
             <div class="card">
                 <div class="card-header">
                     <h5>Quote of the Day</h5>
                 </div>
                 <div class="card-body">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit ipsam possimus maxime minus asperiores illo voluptate rem distinctio, eveniet accusantium modi quas, molestiae veniam sint?
+                    <p class="quote">
+                        {{quote.quote}}
                     </p>
+                </div>
+                <div class="card-footer">
+                    {{quote.author}}
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 {{> footer}}
